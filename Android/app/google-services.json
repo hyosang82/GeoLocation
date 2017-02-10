@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "743373364476",
+    "firebase_url": "https://geolocation-11.firebaseio.com",
+    "project_id": "geolocation-11",
+    "storage_bucket": "geolocation-11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743373364476:android:58c559cd2688f95f",
+        "android_client_info": {
+          "package_name": "com.geolocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743373364476-pbf9itio0v3jlp7430hnkra665v5ecco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVuEOmbM3HA0xEdkJ7XyILJVIzNkI0n4I"
+        },
+        {
+          "current_key": "AIzaSyC0qBAjpnPjkxPKU_xNMD5StbOSsCK8Tdc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743373364476-pbf9itio0v3jlp7430hnkra665v5ecco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

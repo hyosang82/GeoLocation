@@ -28,10 +28,13 @@ public class ReportService extends Service {
         super.onCreate();
 
         provider = Location.getBestProvider((LocationManager) getSystemService(Context.LOCATION_SERVICE));
+        Log.d(Define.TAG, "Location provider = " + provider);
 
         if(provider != null) {
             reportTask.run();
         }
+
+        Log.d(Define.TAG, "Service started");
     }
 
     @Nullable
@@ -45,7 +48,14 @@ public class ReportService extends Service {
         public void run() {
             if(provider != null) {
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                locationManager.requestSingleUpdate(provider, locationListener, Looper.getMainLooper());
+                android.location.Location location = locationManager.getLastKnownLocation(provider);
+                if(location == null) {
+                    locationManager.requestSingleUpdate(provider, locationListener, Looper.getMainLooper());
+                    Log.d(Define.TAG, "SingleUpdate");
+                }else {
+                    Log.d(Define.TAG, "LastKnown");
+                    locationListener.onLocationChanged(location);
+                }
             }
         }
     };
@@ -56,6 +66,7 @@ public class ReportService extends Service {
             String lng = String.format("%.6f", location.getLongitude());
             String lat = String.format("%.6f", location.getLatitude());
             GaeConnector.report(Common.line1Number, lng, lat);
+            Log.d(Define.TAG, "Location = " + lng + ", " + lat);
 
             mTimer.schedule(reportTask, 10000);
         }
